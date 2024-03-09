@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex00_typedef.c                                     :+:      :+:    :+:   */
+/*   ex02_returnnpass_struct2function.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsoares- <tsoares-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 03:46:31 by tsoares-          #+#    #+#             */
-/*   Updated: 2024/03/05 04:38:23 by tsoares-         ###   ########.fr       */
+/*   Created: 2024/03/09 14:43:55 by tsoares-          #+#    #+#             */
+/*   Updated: 2024/03/09 15:28:56 by tsoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct	Point
+typedef struct Point
 {
-	double	x;
-	double	y;
+	double x, y;
 } Point;
 
-int	main(void) //int argc, char **argv)
+void	getMiddlePoint(const Point *a, const Point *b, Point *out)
 {
-	Point	p;
-	p.x = 0.24;
-	p.y = 0.78;
-	printf("(%.2lf, %.2lf)", p.x, p.y);
+	out->x = (a->x + b->x) / 2;
+	out->y = (a->y + b->y) / 2;
+}
+
+int	main(void)
+{
+	Point	p1 =
+	{
+		p1.x = 1,
+		p1.y = 1
+	};
+	Point	p2 =
+	{
+		p2.x = 3,
+		p2.y = 2
+	};
+	Point	middle;
+	getMiddlePoint(&p1, &p2, &middle);
+	printf("middle = (%.2lf, %.2lf)\n", middle.x, middle.y);
 	return (0);
 }
+
